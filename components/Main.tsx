@@ -14,10 +14,10 @@ export default function Main() {
     <>
       <div
         className={cn(
-          "flex w-full font-sans antialiased bg-secondary text-foreground text-xl overflow-hidden"
+          "flex w-full font-sans antialiased bg-secondary text-foreground text-xl overflow-hidden border-bor border-2 rounded-lg"
         )}
       >
-        <div className="overflow-y-scroll overflow-x-hidden relative max-h-lvh ">
+        <div className="overflow-y-scroll overflow-x-hidden relative max-h-lvh border-bor border-2 rounded-lg">
           <div className="w-11/12  rounded-lg flex flex-col p-4">
             <PromptText />
             <TextCard

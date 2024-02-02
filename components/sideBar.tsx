@@ -96,7 +96,7 @@ const Sidebar = () => {
           <ul className=" pb-2 text-xl pl-2 pr-5">
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3 ">
               <Link href="/" className="flex items-center space-x-3 rounded-md">
-                <span>Search</span>
+                <span>Suchen</span>
               </Link>
             </li>
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3">
@@ -104,7 +104,7 @@ const Sidebar = () => {
                 href="price"
                 className="flex items-center  space-x-3 rounded-md"
               >
-                <span>Prices </span>
+                <span>Preise </span>
               </Link>
             </li>
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3">
@@ -112,7 +112,7 @@ const Sidebar = () => {
                 href="/library"
                 className="flex items-center  space-x-3 rounded-md"
               >
-                <span>Library</span>
+                <span>lhre Bibliothek</span>
               </Link>
             </li>
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3">
@@ -120,7 +120,7 @@ const Sidebar = () => {
                 href="help"
                 className="flex items-center  space-x-3 rounded-md"
               >
-                <span>Help </span>
+                <span>helfen </span>
               </Link>
             </li>
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3">
@@ -128,7 +128,7 @@ const Sidebar = () => {
                 href="/login"
                 className="flex items-center  space-x-3 rounded-md"
               >
-                <span>Register</span>
+                <span>Registrieren / Anmeldung</span>
               </Link>
             </li>
           </ul>

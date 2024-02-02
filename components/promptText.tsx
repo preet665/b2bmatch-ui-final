@@ -21,7 +21,7 @@ const PromptText = () => {
         <Textarea
           placeholder="Type your message here and hit enter to submit."
           rows={2}
-          className="pl-4 text-secondary-foreground bg-card hover:bg-secondary rounded-xl text-lg w-full mt-2 border-[1px] hover:border-ring outline-none transition-all duration-500"
+          className="pl-4 text-secondary-foreground bg-card border-2 hover:bg-secondary rounded-xl text-lg w-full mt-2 border-bor focus:outline-none"
           onKeyDown={handleKeyDown}
         />
         <div className="flex flex-col m-2 w-24">
@@ -29,24 +29,24 @@ const PromptText = () => {
             variant={"outline"}
             className="bg-primary text-secondary text-sm h-7 border-white border "
           >
-            Save
+            Speichern
           </Button>
           <Button
             variant={"outline"}
             className="bg-primary text-secondary h-7 border-white border"
           >
-            New
+            Neu
           </Button>
           <Button
             variant={"outline"}
-            className="bg-primary text-secondary h-7 border-white border hidden"
+            className="bg-primary text-secondary h-7 border-white border "
             ref={submitButtonRef}
             onClick={() => {
               // Handle the submit logic here
               console.log("Submit button clicked");
             }}
           >
-            Submit
+            Sended
           </Button>
         </div>
       </div>

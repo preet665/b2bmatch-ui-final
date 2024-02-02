@@ -1,0 +1,107 @@
+<style>
+  .randome {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.75rem;
+    /* border-radius: 0.125rem; */
+    /* border: 1px solid #718096; */
+    margin-top: 0.375rem;
+    /* border-radius: 20px; */
+  }
+
+  span.text-5xl {
+    margin-top: 1.25rem;
+    font-size: 3rem;
+    font-weight: bold;
+    padding-left: 1.5rem;
+  }
+
+  h1.bg-gradient-to-r {
+    background-image: linear-gradient(to right, #00cc00, #005900);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    margin-top: 0.375rem;
+  }
+
+  .p-10 {
+    padding: 2.5rem;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .bg-secondary {
+    background-color: 	#e0e9d2;
+  }
+
+  .border-none {
+    border: none;
+  }
+
+  .shadow-none {
+    box-shadow: none;
+  }
+
+  .text-xl {
+    font-size: 1.25rem;
+  }
+
+
+  .text-lg {
+    font-size: 1.125rem;
+  }
+
+  .text-secondary-foreground {
+    color: #e2e8f0;
+  }
+
+  .bg-card {
+    border-radius: 20px;
+    background-color: transparent;
+  }
+
+  .mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
+  textarea {
+    /* resize: vertical; */
+    resize: both;
+  }
+  button{
+    border-radius: 20px;
+    background-color: #e0e9d2;
+  }
+  input{
+    border-radius: 20px;
+  }
+</style>
+<div class="randome bg-secondary flex flex-col justify-center items-center m-3 rounded-sm border-background mt-3 pt-0">
+  <span class="text-5xl mt-5 font-bold  pl-6">
+    <h1
+      class="bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 inline-block text-transparent bg-clip-text">
+      Contact Us
+    </h1>
+  </span>
+  <div class="flex w-2/4 m-5 p-10 flex-col text-left bg-secondary border-none shadow-none">
+    <h2 class="text-xl">Get in Touch</h2>
+    <p class="text-[20px]">
+      If you have any inquiries or need assistance, please feel free to
+      contact us using the form below. We will get back to you as soon
+      as possible.
+    </p>
+    <h2 class="text-lg">Surname</h2>
+    <input type="text" class="text-secondary-foreground bg-card mb-5" />
+    <h2 class="text-lg">e-mail</h2>
+    <input type="text" class="text-secondary-foreground bg-card mb-5" />
+    <h2 class="text-lg">Inquiry</h2>
+    <textarea class="text-secondary-foreground bg-card mb-5" rows="5"></textarea>
+    <button>Submit</button>
+  </div>
+</div>

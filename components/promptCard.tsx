@@ -24,7 +24,7 @@ const TextCard: React.FC<TextCardProps> = ({
 }) => {
   return (
     <div className="pt-1 pb-1 drop-shadow-lg  w-full ">
-      <div className=" flex rounded-lg h-fit bg-card p-3 flex-col hover:bg-secondary  text-foreground border-b-4 hover:border-primary shadow-md hover:shadow-primary">
+      <div className=" flex rounded-lg h-fit bg-response p-3 flex-col border-bor border-2 text-foreground ">
         <h2 className="text-foreground  text-lg font-medium">Tips</h2>
         <div className="flex flex-col justify-between flex-grow">
           <p className="leading-relaxed text-base text-foreground ">

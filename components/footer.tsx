@@ -18,7 +18,7 @@ const Footer = () => {
               className="text-foreground hover:text-blueGray-800 font-semibold block text-sm"
               href="/about"
             >
-              About Us
+              Über uns
             </a>
           </li>
           <li>
@@ -26,7 +26,7 @@ const Footer = () => {
               className="text-foreground hover:text-blueGray-800 font-semibold block text-sm"
               href="imprint"
             >
-              imprint
+              Impressum
             </a>
           </li>
 
@@ -35,7 +35,7 @@ const Footer = () => {
               className="text-foreground hover:text-blueGray-800 font-semibold block text-sm"
               href="/data"
             >
-              Data protection
+              Datenschutz
             </a>
           </li>
           <li>
@@ -43,7 +43,7 @@ const Footer = () => {
               className="text-foreground hover:text-blueGray-800 font-semibold block text-sm"
               href="tc"
             >
-              Terms &amp; Conditions
+              AGB
             </a>
           </li>
           <li>
@@ -51,7 +51,7 @@ const Footer = () => {
               className="text-foreground hover:text-blueGray-800 font-semibold block text-sm"
               href="/contact"
             >
-              Contact Us
+              Kontaktiere uns
             </a>
           </li>
         </ul>

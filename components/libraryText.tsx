@@ -17,13 +17,13 @@ const LibraryText: React.FC<LibraryTextProps> = ({ content }) => {
             variant={"outline"}
             className="bg-primary text-secondary text-sm h-7 border-white border mb-2"
           >
-            Active
+            Aktivieren
           </Button>
           <Button
             variant={"outline"}
             className="bg-primary text-secondary h-7 border-white border"
           >
-            Delete
+            Löschen
           </Button>
         </div>
       </div>

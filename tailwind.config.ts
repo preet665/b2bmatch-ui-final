@@ -19,6 +19,8 @@ const config = {
     },
     extend: {
       colors: {
+        bor:"hsl(86, 27%, 75%)",
+        response:"hsl(85, 28%, 80%)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
