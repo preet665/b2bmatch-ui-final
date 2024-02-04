@@ -26,7 +26,7 @@ async function fetchHtmlContent() {
     const base64Content = data.content;
 
     // Decode base64 content
-    const htmlContent = atob(base64Content);
+    const htmlContent = new TextDecoder('utf-8').decode(Buffer.from(data.content, 'base64'));
 
     return htmlContent;
   } catch (error) {

@@ -25,7 +25,8 @@ async function fetchHtmlContent() {
     // Check if the data contains content and it is base64 encoded
     if (data.content && data.encoding === "base64") {
       // Decode base64 content
-      const htmlContent = atob(data.content);
+      const htmlContent = new TextDecoder('utf-8').decode(Buffer.from(data.content, 'base64'));
+
 
       return htmlContent;
     } else {
