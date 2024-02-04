@@ -10,12 +10,7 @@ export default function RootLayout({
     <>
       <html lang="en">
         <head>
-          <meta />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <title>Document</title>
+          <meta name="google" content="notranslate"></meta>
         </head>
         <body className="">
           <div className="flex  justify-center items-center self-center">

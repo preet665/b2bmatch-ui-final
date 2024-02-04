@@ -11,7 +11,9 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <head>
+          <meta name="google" content="notranslate"></meta>
+        </head>
         <body className="overflow-hidden ">
           <div className="flex">
             <Sidebar />
