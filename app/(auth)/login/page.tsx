@@ -21,8 +21,8 @@ export default function login() {
       <div className="bg-secondary flex   justify-center items-center self-center box-border mt-32 border-2  w-fit p-10 rounded-xl">
         <Tabs defaultValue="account" className="w-[600px] bg-secondary">
           <TabsList className="grid w-full grid-cols-2 ">
-            <TabsTrigger value="account">Signin</TabsTrigger>
-            <TabsTrigger value="password">Signup</TabsTrigger>
+            <TabsTrigger value="account">Anmelden</TabsTrigger>
+            <TabsTrigger value="password">Melden Sie sich an</TabsTrigger>
             <div className="m-5"></div>
           </TabsList>
           <TabsContent value="account">

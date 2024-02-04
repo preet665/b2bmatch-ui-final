@@ -1,4 +1,4 @@
-// File: F:\PROJECT DEC 2023\b2b-match-ui\app\(start)\layout.tsx
+// File: F:\PROJECT-2023\B2BMATCH\b2bmatch-ui-final\app\(start)\layout.tsx
 import * as entry from '../../../../app/(start)/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

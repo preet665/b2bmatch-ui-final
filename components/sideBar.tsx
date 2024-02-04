@@ -23,7 +23,7 @@ const Sidebar = () => {
               width={"200px"}
               className="m-3 mix-blend-color-burn"
             /> */}
-            
+
             <h1 className="text-3xl font-bold mt-3 bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text">
               B2bMatch
             </h1>
@@ -31,7 +31,7 @@ const Sidebar = () => {
               Welcome Username
             </h1>
             <h1 className="text-xl font-bold  bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text">
-              (show only if logged)
+              
             </h1>
           </div>
           {/* <DropdownMenu>
@@ -120,7 +120,7 @@ const Sidebar = () => {
                 href="help"
                 className="flex items-center  space-x-3 rounded-md"
               >
-                <span>helfen </span>
+                <span>Hilfe </span>
               </Link>
             </li>
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3">
@@ -128,21 +128,20 @@ const Sidebar = () => {
                 href="/login"
                 className="flex items-center  space-x-3 rounded-md"
               >
-                <span>Registrieren / Anmeldung</span>
+                <span>Registrieren / Anmelden</span>
               </Link>
             </li>
           </ul>
           <div className="flex flex-col text-center justify-center">
-            <span className="text-xl ">INFORMATION</span>
-            <p className="text-left p-5 pb-0">
-              We combine our database with chatGPT with the aim of finding
-              “comparable companies”. You can find some examples under “Help”.
+            <span className="text-xl font-bold pt-5">Was ist B2Bmatch.ch?</span>
+            <p className="text-justify p-5 pb-0">
+              Wirtschaftsinformationen aus der Deutschschweiz. Kostenlos können
+              Sie selbst Marktanalysen durchführen. Konkrete Informationen über
+              Marktteilnehmer sind kostenpflichtig. Kontaktieren Sie uns: <b>044
+              380 78 88</b> Um Suchabfragen zu speichern, müssen Sie sich einloggen.
+              Unter "Hilfe" finden Sie Anleitungen und Tipps.
             </p>
-            <p className="text-left p-5 pt-1">
-              The database is already working and we can deliver. This site
-              should be ready by March 2024. If you already have an inquiry
-              today, please contact us. : 044 380 78 88
-            </p>
+           
           </div>
         </div>
       </div>

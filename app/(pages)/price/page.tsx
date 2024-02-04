@@ -23,79 +23,81 @@ export default function GTC() {
             </h1>
           </span>
           <div className="h-fit flex justify-center items-center w-fit p-40 ml-24">
-            <Tabs defaultValue="CH-de addresses" className="w-[1000px]  text-xl">
+            <Tabs
+              defaultValue="CH-de addresses"
+              className="w-[1000px]  text-xl"
+            >
               <TabsList className="grid w-full grid-cols-4 mb-2">
-                <TabsTrigger className="text-lg p-0  " value="CH-de addresses" >
-                  CH-de addresses
+                <TabsTrigger className="text-lg p-0  " value="CH-de addresses">
+                  CH-de Adressen
                 </TabsTrigger>
                 <TabsTrigger className="text-lg p-0 " value="Sale of company">
-                  Sale of company
+                  Unternehmensverkauf
                 </TabsTrigger>
                 <TabsTrigger className="text-lg p-0 " value="Market analysis">
-                  Market analysis
+                  Marktanalyse
                 </TabsTrigger>
-                <TabsTrigger className="text-lg p-0 " value="Customer value (analysis)">
-                  Customer value (analysis)
+                <TabsTrigger
+                  className="text-lg p-0 "
+                  value="Customer value (analysis)"
+                >
+                  Kundenwert (-analyse)
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="CH-de addresses">
                 <Card>
                   <CardHeader>
                     <CardTitle>
-                      Individual contact information for CH-de companies :
+                      Individuelle Kontaktinformationen von CH-de Firmen:
                     </CardTitle>
                     <CardDescription className="text-xl p-10">
-                      You know what you are looking for and just need the right
-                      information from us. We would be happy to provide you with
-                      this information according to your specifications.
+                      Sie wissen, was Sie suchen und benötigen lediglich die
+                      richtigen Informationen von uns. Gerne liefern wir Ihnen
+                      diese Informationen gemäss Ihren Spezifikationen.
                     </CardDescription>
                   </CardHeader>
-                  
                 </Card>
               </TabsContent>
               <TabsContent value="Sale of company">
                 <Card>
                   <CardHeader>
-                    <CardTitle>CH-de addresses :</CardTitle>
+                    <CardTitle></CardTitle>
                     <CardDescription className="text-xl p-10">
-                      The most difficult part of selling a business is finding
-                      suitable buyers. We would be happy to support you in this
-                      area.
+                      Der schwierigste Teil im Unternehmensverkauf ist die Suche
+                      nach passenden Käufern. Gerne unterstützen wir Sie in
+                      diesem Bereich.
                     </CardDescription>
                   </CardHeader>
-                  
                 </Card>
               </TabsContent>
               <TabsContent value="Market analysis">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Market research rethought :</CardTitle>
+                    <CardTitle>Marktforschung neu gedacht:</CardTitle>
                     <CardDescription className="text-xl p-10">
-                      Our database (AI/AI) understands our search queries. This
-                      means that we receive completely new answers. I have been
-                      working in market research for 30 years and I would never
-                      have thought something like this was possible. In short,
-                      we analyze and visualize your search queries and results.
-                      Investigative if necessary.
+                      Unsere Datenbank (KI/AI) versteht unsere Suchanfragen.
+                      Dies führt dazu, dass wir komplet neue Antworten erhalten.
+                      Seit 30 Jahren arbeite ich in der Marktforschung und so
+                      etwas hätte ich nie für möglich gehalten. Kurz, wir
+                      analysieren und visualisieren Ihre Suchanfragen und
+                      Ergebnisse. Bei Bedarf auch investigativ.
                     </CardDescription>
                   </CardHeader>
-                  
                 </Card>
               </TabsContent>
               <TabsContent value="Customer value (analysis)">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Find new, comparable customers :</CardTitle>
+                    <CardTitle>Neue, vergleichbare Kunden finden:</CardTitle>
                     <CardDescription className="text-xl p-10">
-                      Based on a customer value analysis with your existing
-                      customers, we look for comparable, new companies. Such an
-                      analysis is of dual benefit. Firstly, you know which “new”
-                      companies you need to approach and with which arguments.
-                      Second, you will then know which of your customers are
-                      valuable.
+                      Basierend auf einer Kundenwertanalyse mit Ihren
+                      bestehenden Kunden suchen wir vergleichbare, neue
+                      Unternehmen. Eine solche Analyse ist von doppeltem Nutzen.
+                      Erstens wissen Sie, welche “neuen” Firmen Sie mit welchen
+                      Argumenten ansprechen müssen. Zweitens wissen Sie
+                      anschliessen, welche Ihrer Kunden wertvoll sind.
                     </CardDescription>
                   </CardHeader>
-                  
                 </Card>
               </TabsContent>
             </Tabs>

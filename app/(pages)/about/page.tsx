@@ -53,8 +53,9 @@ export default function Home() {
   }, []);
   return (
     <>
-      <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-auto ">
-        {/* <span className="text-5xl mt-5 font-bold  pl-6">
+      <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-hidden">
+        <div className="w-fit  h-[900px] overflow-auto ">
+          {/* <span className="text-5xl mt-5 font-bold  pl-6">
           <h1 className="bg-gradient-to-r from-green-600 to-green-950 inline-block text-transparent bg-clip-text">
             About Us
           </h1>
@@ -88,8 +89,9 @@ export default function Home() {
             </CardDescription>
           </Card>
         </div> */}
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-        <Footer />
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        </div>
+          <Footer />
       </div>
     </>
   );

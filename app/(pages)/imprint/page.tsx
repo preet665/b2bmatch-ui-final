@@ -53,8 +53,10 @@ export default function Home() {
   }, []);
   return (
     <>
-      <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-auto ">
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-hidden ">
+        <div className="w-full  h-[900px] overflow-auto ">
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        </div>
         <Footer />
       </div>
     </>
