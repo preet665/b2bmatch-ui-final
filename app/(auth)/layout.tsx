@@ -10,6 +10,7 @@ export default function RootLayout({
     <>
       <html lang="en">
         <head>
+        <meta charSet="UTF-8"></meta>
           <meta name="google" content="notranslate"></meta>
         </head>
         <body className="">

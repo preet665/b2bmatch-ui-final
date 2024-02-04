@@ -22,13 +22,16 @@ async function fetchHtmlContent() {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    // Use the 'content' property directly for HTML content
-    const base64Content = data.content;
+    // Check if the data contains content and it is base64 encoded
+    if (data.content && data.encoding === "base64") {
+      // Decode base64 content
+      const htmlContent = atob(data.content);
 
-    // Decode base64 content
-    const htmlContent = atob(base64Content);
-
-    return htmlContent;
+      return htmlContent;
+    } else {
+      console.error("Invalid response format:", data);
+      return null;
+    }
   } catch (error) {
     console.error("Error fetching HTML content:", error);
     return null;
@@ -91,7 +94,7 @@ export default function Home() {
         </div> */}
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </div>
-          <Footer />
+        <Footer />
       </div>
     </>
   );

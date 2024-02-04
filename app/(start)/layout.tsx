@@ -12,6 +12,7 @@ export default function RootLayout({
     <>
       <html lang="en" suppressHydrationWarning>
         <head>
+        <meta charSet="UTF-8"></meta>
           <meta name="google" content="notranslate"></meta>
         </head>
         <body className="overflow-hidden ">
