@@ -43,9 +43,9 @@ export default function HelpPage() {
   }, []);
   return (
     <>
-      <div className="bg-secondary p-10 pt-3 flex flex-col text-center justify-center h-screen overflow-auto">
-        
-        {/* <div className="bg-secondary flex justify-center  m-1 rounded-sm border-background mt-3 pt-0">
+      <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-hidden">
+        <div className="w-full  h-screen overflow-auto ">
+          {/* <div className="bg-secondary flex justify-center  m-1 rounded-sm border-background mt-3 pt-0">
         <span className="text-5xl font-bold  pl-6">
           <h1 className="bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 inline-block text-transparent bg-clip-text">
             Help and Explanations
@@ -94,8 +94,8 @@ export default function HelpPage() {
             </h1>
           </Card>
         </div> */}
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        </div>
         <Footer />
       </div>
     </>

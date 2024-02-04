@@ -30,9 +30,7 @@ const Sidebar = () => {
             <h1 className="text-xl font-bold mt-3 bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text">
               Welcome Username
             </h1>
-            <h1 className="text-xl font-bold  bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text">
-              
-            </h1>
+            <h1 className="text-xl font-bold  bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text"></h1>
           </div>
           {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -134,14 +132,14 @@ const Sidebar = () => {
           </ul>
           <div className="flex flex-col text-center justify-center">
             <span className="text-xl font-bold pt-5">Was ist B2Bmatch.ch?</span>
-            <p className="text-justify p-5 pb-0">
+            <p className="text-left p-5 pb-0">
               Wirtschaftsinformationen aus der Deutschschweiz. Kostenlos können
               Sie selbst Marktanalysen durchführen. Konkrete Informationen über
-              Marktteilnehmer sind kostenpflichtig. Kontaktieren Sie uns: <b>044
-              380 78 88</b> Um Suchabfragen zu speichern, müssen Sie sich einloggen.
-              Unter "Hilfe" finden Sie Anleitungen und Tipps.
-            </p>
-           
+              Marktteilnehmer sind kostenpflichtig. Kontaktieren Sie uns:{" "}
+              <b>044 380 78 88</b>
+            </p>{" "}
+            <p className="text-left pl-5 pb-1">Um Suchabfragen zu speichern, müssen Sie sich einloggen. </p>
+            <p className="text-left pl-5 pb-1">Unter "Hilfe" finden Sie Anleitungen und Tipps.</p>
           </div>
         </div>
       </div>

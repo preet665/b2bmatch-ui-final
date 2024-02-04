@@ -19,8 +19,8 @@ const PromptText = () => {
     <>
       <div className="flex w-full items-center mb-2">
         <Textarea
-          placeholder="Type your message here and hit enter to submit."
-          rows={2}
+          placeholder="Geben Sie hier Ihre Suchanfrage ein. Mit den `Tipps` können Sie Ihre Suche verfeinern. Im nächsten Feld erhalten Sie eine Zusammenfassung der gefundenen Unternehmen. Schauen Sie sich die Grafik an und spielen Sie damit. Bewegen Sie die Maus langsam über die Felder. Sie können auch auf die Felder klicken, um tiefer einzutauchen und mehr Details zu erfahren."
+          rows={3}
           className="pl-4 text-secondary-foreground bg-card border-2 hover:bg-secondary rounded-xl text-lg w-full mt-2 border-bor focus:outline-none"
           onKeyDown={handleKeyDown}
         />
@@ -46,7 +46,7 @@ const PromptText = () => {
               console.log("Submit button clicked");
             }}
           >
-            Sended
+            Senden
           </Button>
         </div>
       </div>

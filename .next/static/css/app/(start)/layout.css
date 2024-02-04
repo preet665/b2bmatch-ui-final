@@ -641,6 +641,9 @@ video {
 .mt-5 {
   margin-top: 1.25rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
 .box-border {
   box-sizing: border-box;
 }
@@ -1168,14 +1171,17 @@ video {
 .pt-5 {
   padding-top: 1.25rem;
 }
+.pl-5 {
+  padding-left: 1.25rem;
+}
+.pt-10 {
+  padding-top: 2.5rem;
+}
 .text-left {
   text-align: left;
 }
 .text-center {
   text-align: center;
-}
-.text-justify {
-  text-align: justify;
 }
 .font-sans {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

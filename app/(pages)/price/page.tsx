@@ -19,7 +19,7 @@ export default function GTC() {
         <div className="w-full  max-h-screen overflow-auto">
           <span className="text-5xl mt-5 font-bold pl-6">
             <h1 className="bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 inline-block text-transparent bg-clip-text mt-3">
-              Services
+            Preise und Leistungen
             </h1>
           </span>
           <div className="h-fit flex justify-center items-center w-fit p-40 ml-24">

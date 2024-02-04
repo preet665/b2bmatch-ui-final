@@ -51,7 +51,7 @@ const Footer = () => {
               className="text-foreground hover:text-blueGray-800 font-semibold block text-sm"
               href="/contact"
             >
-              Kontaktiere uns
+              Kontakt
             </a>
           </li>
         </ul>
