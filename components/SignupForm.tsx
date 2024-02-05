@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const SignupForm = () => {
+const SignupForm = ({ switchToLoginTab }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleLoginClick = () => {
+    switchToLoginTab();
+    console.log("login clicked");
+  };
   return (
     <section className="bg-secondary">
       <div className="flex flex-col items-center justify-center h-full ">
         <div className="w-full bg-secondary rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-            Ein Konto erstellen
+              Ein Konto erstellen
             </h1>
             <form className="space-y-4 md:space-y-6" action="/">
               <div>
@@ -90,14 +98,15 @@ const SignupForm = () => {
                 Ein Konto erstellen
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-              Sie haben bereits ein Konto?{" "}
-                <a
-                  href="#"
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                 Hier anmelden
-                </a>
-              </p>
+        Sie haben bereits ein Konto?{" "}
+        <button
+          type="button"
+          onClick={handleLoginClick}
+          className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+        >
+          Hier anmelden
+        </button>
+      </p>
             </form>
           </div>
         </div>
