@@ -17,11 +17,6 @@ export default function login() {
     <div className="flex flex-col  h-screen justify-center items-center self-center bg-[#9eb67c]">
       <div className=" flex  flex-col mt-20  box-border shadow-primary shadow-xl border-2  w-fit p-10 rounded-xl bg-secondary">
         <div className="flex w-fit items-center justify-center self-center text-center  p-5 pb-10 ">
-          <img
-            src="./logo.jpeg"
-            className="w-[300px] mix-blend-color-burn "
-            alt=""
-          />
         </div>
         <Tabs
           defaultValue="account"
