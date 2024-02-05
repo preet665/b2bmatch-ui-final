@@ -1,9 +1,8 @@
 {
-  "/not-found": "app/not-found.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(pages)/about/page": "app/(pages)/about/page.js",
-  "/(pages)/tc/page": "app/(pages)/tc/page.js",
-  "/(pages)/contact/page": "app/(pages)/contact/page.js",
-  "/(pages)/data/page": "app/(pages)/data/page.js",
-  "/(start)/page": "app/(start)/page.js"
+  "/(pages)/library/page": "app/(pages)/library/page.js",
+  "/(start)/page": "app/(start)/page.js",
+  "/(pages)/price/page": "app/(pages)/price/page.js",
+  "/(pages)/help/page": "app/(pages)/help/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js"
 }

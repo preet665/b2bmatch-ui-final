@@ -54,7 +54,7 @@ export default function Imprint() {
   }, []);
   return (
     <>
-      <div className="bg-secondary p-10 pt-3 flex flex-col text-center justify-center h-screen overflow-auto">
+      <div className="bg-secondary p-10 pt-3 flex flex-col text-center justify-center h-screen overflow-auto text-foreground">
       <div className=""><div  dangerouslySetInnerHTML={{ __html: htmlContent }}/></div>
         <Footer />
       </div>

@@ -5,10 +5,13 @@ import React from "react";
 export default function library() {
   return (
     <div className="flex flex-col bg-secondary pt-10">
-      <h2 className="text-xl m-3 ml-10 ">
+      <h2 className="text-xl mt-1 ml-10 ">
         Aktivieren oder löschen Sie Ihren gespeicherten Suchanfragen über die
-        Schaltfläche. Die Suchanfrage wird entweder gelöscht oder auf der
-        Hauptseite eingefügt und dargestellt.
+        Schaltfläche.
+      </h2>
+      <h2 className="text-xl mt-1 ml-10 ">
+        Die Suchanfrage wird entweder gelöscht oder auf der Hauptseite eingefügt
+        und dargestellt.
       </h2>
       <div className="relative  w-11/12 h-[800px] top-20 overflow-scroll max-h-min no-scrollbar ">
         <div className="flex flex-col justify-center items-center ml-2 border-x-2  p-2  rounded-xl">

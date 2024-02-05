@@ -22,7 +22,7 @@ export default function login() {
         <Tabs defaultValue="account" className="w-[600px] bg-secondary">
           <TabsList className="grid w-full grid-cols-2 ">
             <TabsTrigger value="account">Anmelden</TabsTrigger>
-            <TabsTrigger value="password">Registrieren</TabsTrigger>
+            <TabsTrigger value="password">Melden Sie sich an</TabsTrigger>
             <div className="m-5"></div>
           </TabsList>
           <TabsContent value="account">

@@ -44,7 +44,7 @@ export default function GTC() {
   }, []);
   return (
     <>
-      <div className="bg-secondary flex flex-col text-center justify-center">
+      <div className="bg-secondary flex flex-col text-center justify-center ">
         <div className="w-fit  max-h-screen overflow-auto ">
           {/* <div className="bg-secondary flexflex-col flex-grow justify-center m-2 rounded-sm border-background  pt-0">
             <span className="text-5xl mt-1 font-bold pl-6">
