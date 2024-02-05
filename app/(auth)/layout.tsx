@@ -1,6 +1,8 @@
+// RootLayout.js
 "use client";
-import React from "react";
+import Sidebar from "@/components/sideBar";
 import "../globals.css";
+
 export default function RootLayout({
   children,
 }: {
@@ -8,15 +10,15 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en">
-        <head>
+      <html lang="en" suppressHydrationWarning>
+      <head>
+      <meta charSet="UTF-8"></meta>
           <meta name="google" content="notranslate"></meta>
         </head>
-        <body className="">
-          <div className="flex  justify-center items-center self-center">
-            <main className="flex p-4  justify-center items-center self-center">
-              {children}
-            </main>
+        <body className="overflow-hidden ">
+          <div className="flex">
+            <Sidebar />
+            <div className="flex-1 bg-secondary h-screen">{children}</div>
           </div>
         </body>
       </html>

@@ -14,18 +14,19 @@ import {
 export default function login() {
   const { setTheme } = useTheme();
   return (
-    <div className="flex flex-col ">
-      <div className="flex w-fit items-center justify-center self-center text-center ">
-        <img src="./logo.jpeg" className="w-1/4 mix-blend-color-burn " alt="" />
+    <div className="flex flex-col bg-secondary-foreground h-screen justify-center items-center self-center ">
+      
+      <div className="bg-background flex  flex-col mt-20  box-border shadow-primary shadow-xl border-2  w-fit p-10 rounded-xl">
+      <div className="flex w-fit items-center justify-center self-center text-center  p-5 pb-10">
+        <img src="./logo.jpeg" className="w-[300px] mix-blend-color-burn" alt="" />
       </div>
-      <div className="bg-secondary flex   justify-center items-center self-center box-border mt-32 border-2  w-fit p-10 rounded-xl">
-        <Tabs defaultValue="account" className="w-[600px] bg-secondary">
+        <Tabs defaultValue="account" className="w-[600px] shadow-none bg-background">
           <TabsList className="grid w-full grid-cols-2 ">
             <TabsTrigger value="account">Anmelden</TabsTrigger>
             <TabsTrigger value="password">Melden Sie sich an</TabsTrigger>
             <div className="m-5"></div>
           </TabsList>
-          <TabsContent value="account">
+          <TabsContent value="account" >
             <LoginForm />
           </TabsContent>
           <TabsContent value="password">
