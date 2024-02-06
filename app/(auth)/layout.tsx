@@ -18,7 +18,7 @@ export default function RootLayout({
         <body className="overflow-hidden ">
           <div className="flex">
             <Sidebar />
-            <div className="flex-1 bg-secondary h-screen">{children}</div>
+            <div className="flex-1 h-screen">{children}</div>
           </div>
         </body>
       </html>

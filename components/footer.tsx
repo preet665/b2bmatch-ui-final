@@ -73,7 +73,7 @@ const Footer = () => {
               >
                 B2bmatch.ch
               </a>
-              .
+              
             </div>
           </div>
         </div>
