@@ -7,17 +7,13 @@ import Icon1 from './Icon';
 import CustomIcon from "./Icon";
 
 
-const LoginForm = ({ switchToSignupTab }) => {
-  const error = console.error;
-  console.error = (...args: any) => {
-    if (/defaultProps/.test(args[0])) return;
-    error(...args);
-  };
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
+
   const [showPassword, setShowPassword] = useState(false);
   const type = showPassword ? "text" : "password";
   const icon = showPassword ? eye : eyeOff;
+
+
 
   const handleSignupClick = () => {
     switchToSignupTab();

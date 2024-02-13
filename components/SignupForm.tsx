@@ -6,7 +6,7 @@ import { eye } from 'react-icons-kit/feather/eye';
 import Icon1 from './Icon';
 
 
-const SignupForm = ({ switchToLoginTab }) => {
+const SignupForm = ({switchToLoginTab}: {switchToLoginTab:any}) => {
   const error = console.error;
   console.error = (...args: any) => {
     if (/defaultProps/.test(args[0])) return;
