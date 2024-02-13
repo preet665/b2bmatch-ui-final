@@ -1,0 +1,24 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/upper-case";
+exports.ids = ["vendor-chunks/upper-case"];
+exports.modules = {
+
+/***/ "(ssr)/./node_modules/upper-case/upper-case.js":
+/*!***********************************************!*\
+  !*** ./node_modules/upper-case/upper-case.js ***!
+  \***********************************************/
+/***/ ((module) => {
+
+eval("/**\n * Special language-specific overrides.\n *\n * Source: ftp://ftp.unicode.org/Public/UCD/latest/ucd/SpecialCasing.txt\n *\n * @type {Object}\n */ var LANGUAGES = {\n    tr: {\n        regexp: /[\\u0069]/g,\n        map: {\n            \"i\": \"İ\"\n        }\n    },\n    az: {\n        regexp: /[\\u0069]/g,\n        map: {\n            \"i\": \"İ\"\n        }\n    },\n    lt: {\n        regexp: /[\\u0069\\u006A\\u012F]\\u0307|\\u0069\\u0307[\\u0300\\u0301\\u0303]/g,\n        map: {\n            \"i̇\": \"I\",\n            \"j̇\": \"J\",\n            \"į̇\": \"Į\",\n            \"i̇̀\": \"\\xcc\",\n            \"i̇́\": \"\\xcd\",\n            \"i̇̃\": \"Ĩ\"\n        }\n    }\n};\n/**\n * Upper case a string.\n *\n * @param  {String} str\n * @return {String}\n */ module.exports = function(str, locale) {\n    var lang = LANGUAGES[locale];\n    str = str == null ? \"\" : String(str);\n    if (lang) {\n        str = str.replace(lang.regexp, function(m) {\n            return lang.map[m];\n        });\n    }\n    return str.toUpperCase();\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teS1hcHAvLi9ub2RlX21vZHVsZXMvdXBwZXItY2FzZS91cHBlci1jYXNlLmpzPzM0N2QiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBTcGVjaWFsIGxhbmd1YWdlLXNwZWNpZmljIG92ZXJyaWRlcy5cbiAqXG4gKiBTb3VyY2U6IGZ0cDovL2Z0cC51bmljb2RlLm9yZy9QdWJsaWMvVUNEL2xhdGVzdC91Y2QvU3BlY2lhbENhc2luZy50eHRcbiAqXG4gKiBAdHlwZSB7T2JqZWN0fVxuICovXG52YXIgTEFOR1VBR0VTID0ge1xuICB0cjoge1xuICAgIHJlZ2V4cDogL1tcXHUwMDY5XS9nLFxuICAgIG1hcDoge1xuICAgICAgJ1xcdTAwNjknOiAnXFx1MDEzMCdcbiAgICB9XG4gIH0sXG4gIGF6OiB7XG4gICAgcmVnZXhwOiAvW1xcdTAwNjldL2csXG4gICAgbWFwOiB7XG4gICAgICAnXFx1MDA2OSc6ICdcXHUwMTMwJ1xuICAgIH1cbiAgfSxcbiAgbHQ6IHtcbiAgICByZWdleHA6IC9bXFx1MDA2OVxcdTAwNkFcXHUwMTJGXVxcdTAzMDd8XFx1MDA2OVxcdTAzMDdbXFx1MDMwMFxcdTAzMDFcXHUwMzAzXS9nLFxuICAgIG1hcDoge1xuICAgICAgJ1xcdTAwNjlcXHUwMzA3JzogJ1xcdTAwNDknLFxuICAgICAgJ1xcdTAwNkFcXHUwMzA3JzogJ1xcdTAwNEEnLFxuICAgICAgJ1xcdTAxMkZcXHUwMzA3JzogJ1xcdTAxMkUnLFxuICAgICAgJ1xcdTAwNjlcXHUwMzA3XFx1MDMwMCc6ICdcXHUwMENDJyxcbiAgICAgICdcXHUwMDY5XFx1MDMwN1xcdTAzMDEnOiAnXFx1MDBDRCcsXG4gICAgICAnXFx1MDA2OVxcdTAzMDdcXHUwMzAzJzogJ1xcdTAxMjgnXG4gICAgfVxuICB9XG59XG5cbi8qKlxuICogVXBwZXIgY2FzZSBhIHN0cmluZy5cbiAqXG4gKiBAcGFyYW0gIHtTdHJpbmd9IHN0clxuICogQHJldHVybiB7U3RyaW5nfVxuICovXG5tb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uIChzdHIsIGxvY2FsZSkge1xuICB2YXIgbGFuZyA9IExBTkdVQUdFU1tsb2NhbGVdXG5cbiAgc3RyID0gc3RyID09IG51bGwgPyAnJyA6IFN0cmluZyhzdHIpXG5cbiAgaWYgKGxhbmcpIHtcbiAgICBzdHIgPSBzdHIucmVwbGFjZShsYW5nLnJlZ2V4cCwgZnVuY3Rpb24gKG0pIHsgcmV0dXJuIGxhbmcubWFwW21dIH0pXG4gIH1cblxuICByZXR1cm4gc3RyLnRvVXBwZXJDYXNlKClcbn1cbiJdLCJuYW1lcyI6WyJMQU5HVUFHRVMiLCJ0ciIsInJlZ2V4cCIsIm1hcCIsImF6IiwibHQiLCJtb2R1bGUiLCJleHBvcnRzIiwic3RyIiwibG9jYWxlIiwibGFuZyIsIlN0cmluZyIsInJlcGxhY2UiLCJtIiwidG9VcHBlckNhc2UiXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Q0FNQyxHQUNELElBQUlBLFlBQVk7SUFDZEMsSUFBSTtRQUNGQyxRQUFRO1FBQ1JDLEtBQUs7WUFDSCxLQUFVO1FBQ1o7SUFDRjtJQUNBQyxJQUFJO1FBQ0ZGLFFBQVE7UUFDUkMsS0FBSztZQUNILEtBQVU7UUFDWjtJQUNGO0lBQ0FFLElBQUk7UUFDRkgsUUFBUTtRQUNSQyxLQUFLO1lBQ0gsTUFBZ0I7WUFDaEIsTUFBZ0I7WUFDaEIsTUFBZ0I7WUFDaEIsT0FBc0I7WUFDdEIsT0FBc0I7WUFDdEIsT0FBc0I7UUFDeEI7SUFDRjtBQUNGO0FBRUE7Ozs7O0NBS0MsR0FDREcsT0FBT0MsT0FBTyxHQUFHLFNBQVVDLEdBQUcsRUFBRUMsTUFBTTtJQUNwQyxJQUFJQyxPQUFPVixTQUFTLENBQUNTLE9BQU87SUFFNUJELE1BQU1BLE9BQU8sT0FBTyxLQUFLRyxPQUFPSDtJQUVoQyxJQUFJRSxNQUFNO1FBQ1JGLE1BQU1BLElBQUlJLE9BQU8sQ0FBQ0YsS0FBS1IsTUFBTSxFQUFFLFNBQVVXLENBQUM7WUFBSSxPQUFPSCxLQUFLUCxHQUFHLENBQUNVLEVBQUU7UUFBQztJQUNuRTtJQUVBLE9BQU9MLElBQUlNLFdBQVc7QUFDeEIiLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvdXBwZXItY2FzZS91cHBlci1jYXNlLmpzIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/upper-case/upper-case.js\n");
+
+/***/ })
+
+};
+;
