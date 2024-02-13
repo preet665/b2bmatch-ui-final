@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { Button } from "../components/ui/button";
+import axios from "axios";
 
 const PromptGrph = () => {
   const [htmlContent, setHtmlContent] = useState('');
@@ -19,14 +21,15 @@ const PromptGrph = () => {
 
     fetchHtmlContent();
   }, []);
-
   return (
-    <div className="w-fit rounded-lg flex text-lg mt-2">
-      <div
-        className="w-screen rounded-lg mr-3"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
-    </div>
+    <>
+      <div className="w-[100%] rounded-lg  flex  text-lg mt-2 overflow-scroll ">
+        <div
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+        <img src="/graph1.jpg" alt="" className="w-screen rounded-lg mr-3 " />
+      </div>
+    </>
   );
 };
 

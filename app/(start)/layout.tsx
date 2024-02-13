@@ -11,14 +11,14 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head>
-        <meta charSet="UTF-8"></meta>
+      <head>
+      <meta charSet="UTF-8"></meta>
           <meta name="google" content="notranslate"></meta>
         </head>
         <body className="overflow-hidden ">
-          <div className="flex">
+          <div className="flex w-full">
             <Sidebar />
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 h-screen">{children}</div>
           </div>
         </body>
       </html>
