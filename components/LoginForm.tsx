@@ -8,12 +8,15 @@ import CustomIcon from "./Icon";
 
 
 const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
-
+  const error = console.error;
   const [showPassword, setShowPassword] = useState(false);
   const type = showPassword ? "text" : "password";
   const icon = showPassword ? eye : eyeOff;
 
-
+  console.error = (...args: any) => {
+    if (/defaultProps/.test(args[0])) return;
+    error(...args);
+  };
 
   const handleSignupClick = () => {
     switchToSignupTab();
