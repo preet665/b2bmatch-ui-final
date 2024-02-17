@@ -11,8 +11,9 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-      <head>
-      <meta charSet="UTF-8"></meta>
+        <head>
+          <meta charSet="UTF-8"></meta>
+          <title>B2Bmatch.ch</title>
           <meta name="google" content="notranslate"></meta>
         </head>
         <body className="overflow-hidden ">

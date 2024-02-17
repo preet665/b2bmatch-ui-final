@@ -1,9 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
-import Icon1 from './Icon';
 import CustomIcon from "./Icon";
 
 
