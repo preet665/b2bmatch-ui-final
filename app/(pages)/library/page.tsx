@@ -3,11 +3,13 @@ import Footer from "@/components/footer";
 import LibraryText from "@/components/libraryText";
 import React, { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
+
 interface Prompt {
   pro_hist_id: number;
   prompt_string: string; // Add the prompt_string property here
 }
 export default function Library() {
+
   const [prompts, setPrompts] = useState<Prompt[]>([]);
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -25,6 +27,9 @@ export default function Library() {
 
       const responseData = await response.json();
       setPrompts(responseData.prompts);
+
+
+
     } catch (error) {
       console.error("API Error:", error);
     }
@@ -52,10 +57,20 @@ export default function Library() {
       });
 
       listPrompts();
+      setTimeout(() => { handleOpenNewTab() }, 3000);
     } catch (error) {
       console.error("API Error:", error);
     }
   };
+
+  const handleOpenNewTab = () => {
+    // Specify the URL you want to open in the new tab
+    const url = '/';
+
+    // Open the URL in a new tab
+    window.open(url, '_blank');
+  };
+
 
   const deletePrompt = async (pro_hist_id: number) => {
     try {
