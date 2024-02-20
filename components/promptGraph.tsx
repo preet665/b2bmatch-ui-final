@@ -5,7 +5,7 @@ import axios from "axios";
 
 const PromptGrph = () => {
   const [htmlContent, setHtmlContent] = useState('');
-
+  
   useEffect(() => {
     const fetchHtmlContent = async () => {
       try {
@@ -13,6 +13,7 @@ const PromptGrph = () => {
           responseType: 'text'
         });
         setHtmlContent(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.error('Failed to fetch HTML content:', error);
         // Handle error, e.g., set an error state, show a message, etc.
@@ -20,14 +21,15 @@ const PromptGrph = () => {
     };
 
     fetchHtmlContent();
-  }, []);
+  });
+
   return (
     <>
-      <div className="w-[100%] rounded-lg  flex  text-lg mt-2 overflow-scroll ">
+      <div className="w-fit rounded-lg flex text-lg mt-2 ">
         <div
+          className="w-screen rounded-lg mr-3"
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
-        <img src="/graph1.jpg" alt="" className="w-screen rounded-lg mr-3 " />
       </div>
     </>
   );

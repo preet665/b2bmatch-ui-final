@@ -1,20 +1,18 @@
 "use client";
 import { useState } from "react";
+import axios from 'axios'; // Import axios for making API requests
+import CustomIcon from "./Icon";
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
-import CustomIcon from "./Icon";
-
+import { useRouter } from 'next/navigation'
 
 const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
-  const error = console.error;
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const type = showPassword ? "text" : "password";
   const icon = showPassword ? eye : eyeOff;
-
-  console.error = (...args: any) => {
-    if (/defaultProps/.test(args[0])) return;
-    error(...args);
-  };
+  const router = useRouter()
 
   const handleSignupClick = () => {
     switchToSignupTab();
@@ -25,6 +23,23 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
     setShowPassword(!showPassword);
   };
 
+  const handleLogin = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+
+    try {
+      // Make API request to login endpoint
+      const response = await axios.post('/api/library/login', { email, password });
+      console.log(response.status)
+      if(response.status == 200){
+        router.push('/');
+      }
+      // Reset form fields or redirect to another page as needed
+    } catch (error) {
+      // Handle login failure
+      console.error("Login failed:", error);
+    }
+  };
+
   return (
     <section className="shadow-none border-none outline-none">
       <div className="flex flex-col items-center justify-center h-full ">
@@ -33,7 +48,7 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Melden Sie sich bei Ihrem Konto an
             </h1>
-            <form className="space-y-4 md:space-y-6" action="/">
+            <form className="space-y-4 md:space-y-6"  onSubmit={handleLogin}>
               <div>
                 <label
                   htmlFor="email"
@@ -47,7 +62,8 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@firma.ch"
-                />
+                  onChange={(e) => setEmail(e.target.value)}
+                  />
               </div>
               <div>
                 <label
@@ -79,13 +95,14 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 border-none text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
-                  />
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
 
                   <button
                     type="button"
                     onClick={togglePasswordVisibility}
                     className="relative transform -translate-y-1/2 text-gray-400 focus:outline-none m-1"
-                  >
+                    >
                     <CustomIcon icon={icon} size={20} />
                   </button>
                 </div>

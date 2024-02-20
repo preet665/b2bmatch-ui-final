@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import axios from 'axios'; // Import axios for making API requests
 import CustomIcon from "./Icon";
-import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
-import Icon1 from './Icon';
+import { useRouter } from 'next/navigation'
 
-
-const SignupForm = ({switchToLoginTab}: {switchToLoginTab:any}) => {
-  const error = console.error;
-  console.error = (...args: any) => {
-    if (/defaultProps/.test(args[0])) return;
-    error(...args);
-  };
+const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCPassword, setShowCPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showCPassword, setShowCPassword] = useState(false);
   const type = showPassword ? "text" : "password";
   const type1 = showCPassword ? "text" : "password";
   const icon = showPassword ? eye : eyeOff;
   const icon1 = showCPassword ? eye : eyeOff;
+  const router = useRouter()
 
   const handleLoginClick = () => {
     switchToLoginTab();
@@ -30,8 +25,30 @@ const SignupForm = ({switchToLoginTab}: {switchToLoginTab:any}) => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   const toggleCPasswordVisibility = () => {
     setShowCPassword(!showCPassword);
+  };
+
+  const handleSignup = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+
+    try {
+      // Make API request to signup endpoint
+      const response = await axios.post('/api/library/signup', { email, password });
+
+      // Handle successful signup
+      console.log(response.data);
+
+      if(response.data.message == "Registration successful"){
+        router.push('/');
+      }
+
+      // Reset form fields or redirect to another page as needed
+    } catch (error) {
+      // Handle signup failure
+      console.error("Signup failed:", error);
+    }
   };
 
   return (
@@ -42,7 +59,7 @@ const SignupForm = ({switchToLoginTab}: {switchToLoginTab:any}) => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Ein Konto erstellen
             </h1>
-            <form className="space-y-4 md:space-y-6" action="/">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSignup}>
               <div>
                 <label
                   htmlFor="email"
@@ -56,6 +73,7 @@ const SignupForm = ({switchToLoginTab}: {switchToLoginTab:any}) => {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@firma.ch"
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -88,6 +106,7 @@ const SignupForm = ({switchToLoginTab}: {switchToLoginTab:any}) => {
                     name="password"
                     id="password"
                     placeholder="••••••••"
+                    onChange={(e) => setPassword(e.target.value)}
                     className="bg-gray-50 border border-gray-300 border-none text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                   />
@@ -114,6 +133,7 @@ const SignupForm = ({switchToLoginTab}: {switchToLoginTab:any}) => {
                     name="Cpassword"
                     id="Cpassword"
                     placeholder="••••••••"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     className="bg-gray-50 border border-gray-300 border-none text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                   />

@@ -17,7 +17,7 @@ export default function RootLayout({
           <meta name="google" content="notranslate"></meta>
         </head>
         <body className="overflow-hidden ">
-          <div className="flex w-full">
+          <div className="flex w-fit">
             <Sidebar />
             <div className="flex-1 h-screen">{children}</div>
           </div>

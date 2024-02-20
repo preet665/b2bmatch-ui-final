@@ -14,7 +14,7 @@ export default function Main() {
     <>
       <div
         className={cn(
-          "flex w-full font-sans antialiased bg-secondary text-foreground text-xl overflow-hidden border-bor border-2 rounded-lg"
+          "flex w-10/12 font-sans antialiased bg-secondary text-foreground text-xl overflow-hidden border-bor border-2 rounded-lg"
         )}
       >
         <div className="overflow-y-scroll overflow-x-hidden relative max-h-lvh border-bor border-2 rounded-lg">
