@@ -14,6 +14,7 @@ export default function RootLayout({
       <head>
       <meta charSet="UTF-8"></meta>
       <title>B2Bmatch auth</title>
+      
           <meta name="google" content="notranslate"></meta>
         </head>
         <body className="overflow-hidden ">

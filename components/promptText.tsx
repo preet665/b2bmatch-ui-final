@@ -26,7 +26,7 @@ const PromptText = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user_id: "1", // Replace with the actual user ID
+          user_id: "1",
           prompt_string: promptText,
         }),
       });

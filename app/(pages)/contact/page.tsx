@@ -1,62 +1,67 @@
 "use client";
 import * as React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 import Footer from "@/components/footer";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-async function fetchHtmlContent() {
-  const repoOwner = "preet665";
-  const repoName = "b2b-match-ui-docs";
-  const filePath = "contact.html"; // Update with the actual path
+import { toast } from "react-toastify";
+import axios from 'axios';
 
-  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+async function submitContactMessage(messageData: { name_string: string; email_string: string; message_string: string; }) {
+  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/contact`;
 
   try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+    const response = await axios.post(apiUrl, messageData);
+    console.log(messageData);
+    console.log(JSON.stringify(response.data));
 
-    // Use the 'content' property directly for HTML content
-    const base64Content = data.content;
-
-    // Decode base64 content
-    const htmlContent = new TextDecoder('utf-8').decode(Buffer.from(data.content, 'base64'));
-
-    return htmlContent;
+    // Show a success toast notification
+    toast.success("Message sent successfully!");
   } catch (error) {
-    console.error("Error fetching HTML content:", error);
-    return null;
+    console.error(error);
+
+    // Show an error toast notification
+    toast.error("Failed to send message. Please try again.");
   }
 }
+
 export default function Imprint() {
-  const [htmlContent, setHtmlContent] = React.useState("");
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
 
-  React.useEffect(() => {
-    // Call the fetchHtmlContent function when the component is mounted
-    const fetchData = async () => {
-      const content = await fetchHtmlContent();
-      if (content) {
-        console.log("HTML Content:", content);
-        setHtmlContent(content);
-        // Update your component state or do something with the HTML content
-      }
+  const handleSubmit = () => {
+    const messageData = {
+      name_string: name,
+      email_string: email,
+      message_string: message,
     };
+    submitContactMessage(messageData);
+    
+  };
 
-    fetchData();
-  }, []);
   return (
     <>
       <div className="bg-secondary p-10 pt-3 flex flex-col text-center justify-center h-screen overflow-auto text-foreground">
-      <div className=""><div  dangerouslySetInnerHTML={{ __html: htmlContent }}/></div>
-        <Footer />
+        <div className="randome bg-secondary flex flex-col justify-center items-center m-3 rounded-sm border-background mt-3 pt-0">
+          <span className="text-5xl mt-5 font-bold pl-6">
+            <h1 className="bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 inline-block text-transparent bg-clip-text">
+              Kontakt
+            </h1>
+          </span>
+          <div className="flex w-2/4 m-5 p-10 flex-col text-left bg-secondary border-none shadow-none text-black ">
+            <p className="text-xl">
+              Wenn Sie Fragen haben oder Hilfe benötigen, dann senden Sie uns Ihre Frage zu. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.
+            </p>
+            <h2 className="text-lg contactus">Ihr Name</h2>
+            <input type="text" className="bg-card rounded-md bg-gray-200" onChange={(e) => setName(e.target.value)} />
+            <h2 className="text-lg contactus">Ihre E-Mail</h2>
+            <input type="text" className="bg-card rounded-md bg-gray-200" onChange={(e) => setEmail(e.target.value)} />
+            <h2 className="text-lg contactus">Ihre Anfrage</h2>
+            <textarea className="bg-card mb-5 rounded-md bg-gray-200" rows={5} onChange={(e) => setMessage(e.target.value)}></textarea>
+            <button className="text-black bg-primary p-3 rounded-md cursor-pointer hover:bg-popover border-2 border-black" onClick={handleSubmit}>
+              Senden
+            </button>
+          </div>
+        </div>
+          <Footer />
       </div>
     </>
   );
