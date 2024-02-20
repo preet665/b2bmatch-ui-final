@@ -28,7 +28,7 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
 
     try {
       // Make API request to login endpoint
-      const response = await axios.post('/api/library/login', { email, password });
+      const response = await axios.post('/api/login', { email, password });
       console.log(response.status)
       if(response.status == 200){
         router.push('/');
