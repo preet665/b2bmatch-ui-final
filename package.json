@@ -40,7 +40,8 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
-    "tw-elements": "^1.1.0"
+    "tw-elements": "^1.1.0",
+    "use-effect-once": "^0.1.2"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
