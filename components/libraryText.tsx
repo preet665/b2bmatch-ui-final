@@ -16,8 +16,8 @@ interface LibraryTextProps {
 const LibraryText: React.FC<LibraryTextProps> = ({ prompt, onReactivateClick, onDeleteClick }) => {
   return (
     <div className="w-11/12">
-      <div className="flex flex-row m-2 w-11//12">
-        <p className="p-2 border-primary text-secondary-foreground bg-card hover:bg-secondary rounded-xl text-lg w-11/12 border-[1px] hover:border-ring outline-none transition-all duration-500">
+      <div className="flex flex-row m-2 w-11//12 hover:bg-bor rounded-3xl">
+        <p className="p-3 border-primary text-secondary-foreground bg-response rounded-xl text-lg w-11/12 border-[1px] outline-none transition-all duration-500">
           {prompt.prompt_string}
         </p>
         <div className="m-2 text-center w-[150px]">

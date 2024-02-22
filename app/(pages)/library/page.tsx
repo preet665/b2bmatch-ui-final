@@ -105,16 +105,17 @@ export default function Library() {
 
   return (
     <div className="flex flex-col bg-secondary pt-10">
-      <h2 className="text-xl mt-1 ml-10 ">
-        Aktivieren oder löschen Sie Ihren gespeicherten Suchanfragen über die
-        Schaltfläche.
-      </h2>
-      <h2 className="text-xl mt-1 ml-10 ">
-        Die Suchanfrage wird entweder gelöscht oder auf der Hauptseite eingefügt
-        und dargestellt.
-      </h2>
-      <div className="relative  w-11/12 h-[800px] top-20 overflow-scroll max-h-min no-scrollbar ">
-        <div className="flex flex-col justify-center items-center ml-2 border-x-2  p-2  rounded-xl">
+      <div className="pl-14 ">
+        <h2 className="text-xl p-2 ">
+          Aktivieren oder löschen Sie Ihren gespeicherten Suchanfragen über die
+          Schaltfläche.
+        </h2>
+        <h2 className="text-xl p-2 ">
+          Die Suchanfrage wird entweder gelöscht oder auf der Hauptseite eingefügt
+          und dargestellt.
+        </h2></div>
+      <div className="relative  w-11/12 h-screen right-2  overflow-scroll max-h-min no-scrollbar pb-60 border-y-2 ">
+        <div className="flex flex-col justify-center items-center ml-2 border-x-2 rounded-xl ">
           {prompts.map((prompt) => (
             <LibraryText
               key={prompt.pro_hist_id}

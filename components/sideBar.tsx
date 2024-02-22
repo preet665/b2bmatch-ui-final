@@ -25,10 +25,11 @@ const Sidebar = () => {
             /> */}
 
             <h1 className="text-3xl font-bold mt-3 bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text">
-              B2bMatch
+              B2bMatch.ch
             </h1>
             <h1 className="text-xl font-bold mt-3 bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text">
-              Welcome Username
+              Willkommen
+              {/* Hallo John */}
             </h1>
             <h1 className="text-xl font-bold  bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text"></h1>
           </div>

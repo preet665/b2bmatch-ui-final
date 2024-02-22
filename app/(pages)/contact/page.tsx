@@ -34,7 +34,7 @@ export default function Imprint() {
       message_string: message,
     };
     submitContactMessage(messageData);
-    
+
   };
 
   return (
@@ -46,22 +46,22 @@ export default function Imprint() {
               Kontakt
             </h1>
           </span>
-          <div className="flex w-2/4 m-5 p-10 flex-col text-left bg-secondary border-none shadow-none text-black ">
+          <div className="flex w-2/4 m-5 p-10 flex-col text-left bg-secondary border-none shadow-none text-foreground ">
             <p className="text-xl">
               Wenn Sie Fragen haben oder Hilfe benötigen, dann senden Sie uns Ihre Frage zu. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.
             </p>
-            <h2 className="text-lg contactus">Ihr Name</h2>
-            <input type="text" className="bg-card rounded-md bg-gray-200" onChange={(e) => setName(e.target.value)} />
-            <h2 className="text-lg contactus">Ihre E-Mail</h2>
-            <input type="text" className="bg-card rounded-md bg-gray-200" onChange={(e) => setEmail(e.target.value)} />
-            <h2 className="text-lg contactus">Ihre Anfrage</h2>
-            <textarea className="bg-card mb-5 rounded-md bg-gray-200" rows={5} onChange={(e) => setMessage(e.target.value)}></textarea>
-            <button className="text-black bg-primary p-3 rounded-md cursor-pointer hover:bg-popover border-2 border-black" onClick={handleSubmit}>
+            <h2 className="text-lg contactus  pt-2 pb-2">Ihr Name</h2>
+            <input type="text" className="bg-white rounded-md " onChange={(e) => setName(e.target.value)} />
+            <h2 className="text-lg contactus pt-2 pb-2">Ihre E-Mail</h2>
+            <input type="text" className="bg-white rounded-md " onChange={(e) => setEmail(e.target.value)} />
+            <h2 className="text-lg contactus pt-2 pb-2">Ihre Anfrage</h2>
+            <textarea className="bg-white mb-5 rounded-md " rows={5} onChange={(e) => setMessage(e.target.value)}></textarea>
+            <button className="text-foreground bg-primary p-3 rounded-md cursor-pointer hover:bg-popover border-2 border-black" onClick={handleSubmit}>
               Senden
             </button>
           </div>
         </div>
-          <Footer />
+        <Footer />
       </div>
     </>
   );
