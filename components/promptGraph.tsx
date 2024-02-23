@@ -23,7 +23,7 @@ const PromptGrph = async () => {
   return (
     <div className="w-full rounded-lg flex text-lg mt-2">
       <iframe
-        className="w-full rounded-lg mr-3 h-[1000px]"
+        className="w-full rounded-lg mr-3 h-[480px]"
         srcDoc={data}
       />
     </div>
