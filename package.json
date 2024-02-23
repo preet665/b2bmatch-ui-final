@@ -22,6 +22,7 @@
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "cors": "^2.8.5",
     "fs": "^0.0.1-security",
     "google-translate-api": "^2.3.0",
     "i18next": "^23.8.2",
@@ -44,9 +45,10 @@
     "use-effect-once": "^0.1.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
-    "@types/react": "^18.2.48",
+    "@types/react": "18.2.58",
     "@types/react-dom": "^18.2.18",
     "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.0.1",
@@ -54,6 +56,6 @@
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "5.3.3"
   }
 }

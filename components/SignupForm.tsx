@@ -4,12 +4,15 @@ import CustomIcon from "./Icon";
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import { useRouter } from 'next/navigation'
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showCPassword, setShowCPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const type = showPassword ? "text" : "password";
   const type1 = showCPassword ? "text" : "password";
@@ -33,23 +36,52 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
   const handleSignup = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
+    // Check if required fields are not empty
+    if (!name || !email || !password || !confirmPassword) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
     try {
       // Make API request to signup endpoint
-      const response = await axios.post('/api/library/signup', { email, password });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+        name_txt: name,
+        email_txt: email,
+        password_1_txt: password,
+        password_2_txt: confirmPassword,
+        accept_terms: true,
+      });
 
-      // Handle successful signup
-      console.log(response.data);
+      console.log("Signup response:", response.status);
 
-      if(response.data.message == "Registration successful"){
+      if (response.status === 201) {
+        toast.success("Varify Your email !!!");
+        // Redirect to a new page or perform any other necessary action
         router.push('/');
+      } else {
+        toast.error("Something went wrong. Please try again later.");
       }
-
-      // Reset form fields or redirect to another page as needed
     } catch (error) {
       // Handle signup failure
       console.error("Signup failed:", error);
+
+      if (error.response && error.response.status === 409) {
+        toast.error("Email already exists");
+      } else {
+        toast.error("Signup failed. Please try again later.");
+      }
     }
   };
+
+
+
+
 
   return (
     <section className="shadow-none border-none outline-none">
@@ -90,6 +122,7 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
                   id="username"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Nike"
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
               </div>

@@ -81,7 +81,7 @@ const Sidebar = () => {
           </ul> */}
           <ul className=" pb-2 text-xl pl-2 pr-5">
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3 ">
-              <button onClick={home} className="flex items-center space-x-3 rounded-md">
+              <button onClick={home} className="flex items-center space-x-3 rounded-md w-full outline-none focus:outline-none">
                 <span>Suchen</span>
               </button>
             </li>
