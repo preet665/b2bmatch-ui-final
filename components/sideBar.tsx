@@ -1,29 +1,16 @@
 "use client";
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Sidebar = () => {
-  const { setTheme } = useTheme();
+  function home(){
+    window.location.assign("http://localhost:4000/")
+  }
+
   return (
     <>
       <div className="flex flex-col  gap-1  w-80  max-h-screen bg-background">
         <div className="flex items-center justify-center ">
           <div className="flex flex-col justify-center items-center text-center">
-            {/* <img
-              src="./logo.jpeg"
-              alt="raj"
-              width={"200px"}
-              className="m-3 mix-blend-color-burn"
-            /> */}
-
             <h1 className="text-3xl font-bold mt-3 bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 text-transparent bg-clip-text">
               B2bMatch.ch
             </h1>
@@ -94,9 +81,9 @@ const Sidebar = () => {
           </ul> */}
           <ul className=" pb-2 text-xl pl-2 pr-5">
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3 ">
-              <Link href="/" className="flex items-center space-x-3 rounded-md">
+              <button onClick={home} className="flex items-center space-x-3 rounded-md">
                 <span>Suchen</span>
-              </Link>
+              </button>
             </li>
             <li className="rounded-sm border-b-2 transition-all duration-500 hover:bg-secondary p-1 text-lg m-3">
               <Link

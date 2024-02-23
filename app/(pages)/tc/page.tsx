@@ -9,7 +9,7 @@ async function fetchHtmlContent() {
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
 
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl,);
     const data = await response.json();
 
     // Use the 'content' property directly for HTML content

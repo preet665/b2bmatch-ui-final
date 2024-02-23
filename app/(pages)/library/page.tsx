@@ -19,6 +19,9 @@ export default function Library() {
 
       const response = await fetch(apiUrl, {
         method: "GET",
+        headers: {
+          'Authorization': `${process.env.JWT_TOKEN}`,
+        },
       });
       console.log(response);
       if (!response.ok) {
@@ -41,6 +44,9 @@ export default function Library() {
 
       const response = await fetch(apiUrl, {
         method: "GET",
+        headers: {
+          'Authorization': `${process.env.JWT_TOKEN}`,
+        },
       });
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -78,6 +84,9 @@ export default function Library() {
 
       const response = await fetch(apiUrl, {
         method: "POST",
+        headers: {
+          'Authorization': `${process.env.JWT_TOKEN}`,
+        },
       });
       console.log(response);
       if (!response.ok) {

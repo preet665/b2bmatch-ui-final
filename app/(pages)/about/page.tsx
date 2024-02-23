@@ -26,12 +26,12 @@ async function fetchHtmlContent() {
 }
 
 export default async function Home() {
-  const html = await fetchHtmlContent(); 
+  const html = await fetchHtmlContent();
   return (
     <>
       <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-hidden">
         <div className="w-fit  h-[900px] overflow-auto ">
-          <div dangerouslySetInnerHTML={{ __html: html|| <h1>Loading...</h1> }} />
+          <div dangerouslySetInnerHTML={{ __html: html || <h1>Loading...</h1> }} />
         </div>
         <Footer />
       </div>

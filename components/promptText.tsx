@@ -6,11 +6,11 @@ import "../app/globals.css";
 import { toast } from "react-toastify";
 
 const PromptText = () => {
-  const submitButtonRef = useRef(null);
+  const submitButtonRef = useRef((null as unknown) as HTMLButtonElement); ;
   const [promptText, setPromptText] = useState("");
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleKeyDown = (event:any) => {
+  const handleKeyDown = (event: any) => {
     if (event.keyCode === 13) {
       submitButtonRef.current.click();
     }
@@ -27,7 +27,7 @@ const PromptText = () => {
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          'Authorization': `${process.env.JWT_TOKEN}`,
         },
         body: JSON.stringify({
           user_id: "1",
@@ -71,9 +71,8 @@ const PromptText = () => {
         <div className="flex flex-col m-2 w-24">
           <Button
             variant={"outline"}
-            className={`bg-primary text-secondary text-sm h-7 border-white border ${
-              isPromptTextEmpty && "opacity-50 cursor-not-allowed"
-            }`}
+            className={`bg-primary text-secondary text-sm h-7 border-white border ${isPromptTextEmpty && "opacity-50 cursor-not-allowed"
+              }`}
             onClick={handleSave}
             disabled={isPromptTextEmpty}
           >
@@ -81,9 +80,8 @@ const PromptText = () => {
           </Button>
           <Button
             variant={"outline"}
-            className={`bg-primary text-secondary h-7 border-white border ${
-              isPromptTextEmpty && "opacity-50 cursor-not-allowed"
-            }`}
+            className={`bg-primary text-secondary h-7 border-white border ${isPromptTextEmpty && "opacity-50 cursor-not-allowed"
+              }`}
             onClick={handleNew}
             disabled={isPromptTextEmpty}
           >
@@ -91,9 +89,8 @@ const PromptText = () => {
           </Button>
           <Button
             variant={"outline"}
-            className={`bg-primary text-secondary h-7 border-white border ${
-              isPromptTextEmpty && "opacity-50 cursor-not-allowed"
-            }`}
+            className={`bg-primary text-secondary h-7 border-white border ${isPromptTextEmpty && "opacity-50 cursor-not-allowed"
+              }`}
             ref={submitButtonRef}
             disabled={isPromptTextEmpty}
           >
