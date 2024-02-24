@@ -26,6 +26,7 @@
     "fs": "^0.0.1-security",
     "google-translate-api": "^2.3.0",
     "i18next": "^23.8.2",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.0.4",
     "next-auth": "^4.24.6",
     "next-themes": "^0.2.1",

@@ -12,7 +12,8 @@ async function getTreemap() {
 }
 
 const PromptGrph = async () => {
-  const data = await getTreemap();
+  // const data = await getTreemap();
+  const data = "<>s</>";
   if (!data) {
     return (
       <div className="w-full h-[1000px] flex items-center justify-center">

@@ -1,27 +1,36 @@
 "use client";
 import Footer from "@/components/footer";
 import LibraryText from "@/components/libraryText";
+import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import { toast } from 'react-toastify';
-
+import { useRouter } from 'next/navigation';
 interface Prompt {
   pro_hist_id: number;
-  prompt_string: string; // Add the prompt_string property here
+  prompt_string: string;
 }
 export default function Library() {
+  const { data: session } = useSession();
+  const router = useRouter();
 
+  if (!session) {
+    router.replace(`/login`);
+    return null
+  }
+
+  let headersList = {
+    "Authorization": `Bearer ${session.access_token}`,
+    "Content-Type": "application/json"
+  }
   const [prompts, setPrompts] = useState<Prompt[]>([]);
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
   const listPrompts = async () => {
     try {
       const apiUrl = `${API_BASE_URL}/library/list_prompts?user_id=1`;
 
       const response = await fetch(apiUrl, {
         method: "GET",
-        headers: {
-          'Authorization': `${process.env.JWT_TOKEN}`,
-        },
+        headers: headersList,
       });
       console.log(response);
       if (!response.ok) {
@@ -44,9 +53,7 @@ export default function Library() {
 
       const response = await fetch(apiUrl, {
         method: "GET",
-        headers: {
-          'Authorization': `${process.env.JWT_TOKEN}`,
-        },
+        headers: headersList,
       });
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -70,12 +77,11 @@ export default function Library() {
   };
 
   const handleOpenNewTab = () => {
-    // Specify the URL you want to open in the new tab
     const url = '/';
-
-    // Open the URL in a new tab
     window.open(url, '_blank');
   };
+
+
 
 
   const deletePrompt = async (pro_hist_id: number) => {
@@ -84,9 +90,7 @@ export default function Library() {
 
       const response = await fetch(apiUrl, {
         method: "POST",
-        headers: {
-          'Authorization': `${process.env.JWT_TOKEN}`,
-        },
+        headers: headersList,
       });
       console.log(response);
       if (!response.ok) {

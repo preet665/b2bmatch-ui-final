@@ -4,12 +4,15 @@ import Sidebar from "@/components/sideBar";
 import "./globals.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { SessionProvider } from 'next-auth/react';
+import { Session } from 'next-auth'
+import Providers from "../components/Providers";
+interface Props {
+  session: Session | null
+  children: React.ReactNode
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const RootLayout: React.FC<Props> = ({ children, session }) => {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -19,13 +22,16 @@ export default function RootLayout({
           <meta name="google" content="notranslate"></meta>
         </head>
         <body className="overflow-hidden ">
-          <div className="flex w-screen">
-            <Sidebar />
-            <ToastContainer />
-            <div className="flex-1 h-screen w-screen">{children}</div>
-          </div>
+          <Providers>
+            <div className="flex w-screen">
+              <Sidebar />
+              <ToastContainer />
+              <div className="flex-1 h-screen w-screen">{children}</div>
+            </div>
+          </Providers>
         </body>
-      </html>
+      </html >
     </>
   );
 }
+export default RootLayout

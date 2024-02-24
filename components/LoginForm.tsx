@@ -7,11 +7,13 @@ import { eye } from 'react-icons-kit/feather/eye';
 import { useRouter } from 'next/navigation'
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { signIn } from "next-auth/react";
 
 const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [result, setresult] = useState("");
   const type = showPassword ? "text" : "password";
   const icon = showPassword ? eye : eyeOff;
   const router = useRouter()
@@ -27,31 +29,12 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
 
   const handleLogin = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-
-    try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/login`, { username: email, password: password });
-      // console.log(response.status)
-      if (response.status == 200) {
-        toast.success("Loggin succeful !!!");
-        window.open("/", "_self")
-      }
-      else {
-        toast.success("Invalid credentials");
-      }
-    } catch (error) {
-      // Handle signup failure
-      console.error("Login failed:", error);
-
-      if (error.response && error.response.status === 403) {
-        toast.error("Invalid credentials. Please try again.");
-      } else {
-        toast.error("Login failed. Please try again later.");
-      }
-    }
+    const result = await signIn("credentials", { username: email, password: password, redirect: true, callbackUrl: '/' })
   };
 
   return (
     <section className="shadow-none border-none outline-none">
+      {/* {result} */}
       <div className="flex flex-col items-center justify-center h-full ">
         <div className="w-full bg-secondary rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

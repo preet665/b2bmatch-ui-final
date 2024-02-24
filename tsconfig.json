@@ -1,14 +1,9 @@
 {
   "compilerOptions": {
-    "types": [
-      "js-cookie"
-    ],
+    "types": ["js-cookie"],
+    "useUnknownInCatchVariables": false,
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -26,9 +21,7 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   },
   "include": [
@@ -36,9 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.jsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    ".next/types/**/*.ts",
+    "pages/_app.ts"
+, "pages/api/[...nextauth]", "pages/api/auth/[...nextauth].js"  ],
+  "exclude": ["node_modules"]
 }
