@@ -1,11 +1,12 @@
 import Footer from "@/components/footer";
 async function fetchHtmlContent() {
+  const token = process.env.GIT_ACCESS_TOKEN;
   const repoOwner = "preet665";
   const repoName = "b2b-match-ui-docs";
   const filePath = "help.html";
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl, { headers: { Authorization: `Bearer ${token}`, } });
     const data = await response.json();
     const base64Content = data.content;
     const htmlContent = new TextDecoder('utf-8').decode(Buffer.from(data.content, 'base64'));
