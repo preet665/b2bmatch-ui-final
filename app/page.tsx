@@ -1,5 +1,4 @@
 // pages/index.tsx
-"use client";
 import Main from '@/components/Main';
 import { Session } from 'next-auth'
 import Providers from "../components/Providers";
