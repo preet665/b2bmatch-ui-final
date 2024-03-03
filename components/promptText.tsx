@@ -1,16 +1,24 @@
-import React, { useRef, useState } from "react";
+"use client";
+import React, { useRef, useState, useEffect } from "react";
 import { Button } from "../components/ui/button";
 import { Textarea } from "./ui/textarea";
-import { Label } from "./ui/label";
 import "../app/globals.css";
+import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 
 const PromptText = () => {
-  const submitButtonRef = useRef((null as unknown) as HTMLButtonElement); ;
+  const { data: session } = useSession();
+  const submitButtonRef = useRef(null);
   const [promptText, setPromptText] = useState("");
+  const [isPromptTextEmpty, setIsPromptTextEmpty] = useState(true);
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleKeyDown = (event: any) => {
+
+  useEffect(() => {
+    setIsPromptTextEmpty(promptText.trim().length === 0);
+  }, [promptText]);
+
+  const handleKeyDown = (event) => {
     if (event.keyCode === 13) {
       submitButtonRef.current.click();
     }
@@ -21,49 +29,57 @@ const PromptText = () => {
   };
 
   const handleSave = async () => {
-    try {
-      const apiUrl = `${API_BASE_URL}/library/store_prompt`;
+    if (session) {
+      const headersList = {
+        "Authorization": `Bearer ${session.access_token}`,
+        "Content-Type": "application/json"
+      };
+      try {
+        const apiUrl = `${API_BASE_URL}/library/store_prompt`;
 
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          'Authorization': `${process.env.JWT_TOKEN}`,
-        },
-        body: JSON.stringify({
-          user_id: "1",
-          prompt_string: promptText,
-        }),
-      });
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: headersList,
+          body: JSON.stringify({
+            user_id: "1",
+            prompt_string: promptText,
+          }),
+        });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!response.ok) {
+          toast.error("Melden Sie sich zuerst an, um Ihre Eingabeaufforderungen zu speichern");
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        toast.success(`${responseData.message} `, {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        console.log("API Response:", responseData);
+      } catch (error) {
+        console.error("API Error:", error);
       }
-
-      const responseData = await response.json();
-      toast.success(`${responseData.message} `, {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      console.log("API Response:", responseData);
-    } catch (error) {
-      console.error("API Error:", error);
     }
-  };
+    else {
+      toast.error("Melden Sie sich zuerst an, um Ihre Eingabeaufforderungen zu speichern");
+      return;
+    }
 
-  const isPromptTextEmpty = promptText.trim() === "";
+  };
 
   return (
     <>
       <div className="flex w-full items-center mb-2">
         <Textarea
-          placeholder="Geben Sie hier Ihre Suchanfrage ein. Mit den `Tipps` können Sie Ihre Suche verfeinern. Im nächsten Feld erhalten Sie eine Zusammenfassung der gefundenen Unternehmen. Schauen Sie sich die Grafik an und spielen Sie damit. Bewegen Sie die Maus langsam über die Felder. Sie können auch auf die Felder klicken, um tiefer einzutauchen und mehr Details zu erfahren."
+          placeholder="Geben Sie hier Ihre Suchanfrage ein..."
           rows={3}
-          className="pl-4 text-secondary-foreground bg-white border-2  rounded-xl text-lg w-full mt-2 border-bor focus:outline-none"
+          className="pl-4 text-secondary-foreground bg-white border-2 rounded-xl text-lg w-full mt-2 border-bor focus:outline-none"
           onKeyDown={handleKeyDown}
           value={promptText}
           onChange={(e) => setPromptText(e.target.value)}

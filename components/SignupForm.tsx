@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-import axios from 'axios'; // Import axios for making API requests
+import axios from 'axios';
 import CustomIcon from "./Icon";
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
@@ -18,11 +19,10 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
   const type1 = showCPassword ? "text" : "password";
   const icon = showPassword ? eye : eyeOff;
   const icon1 = showCPassword ? eye : eyeOff;
-  const router = useRouter()
+  const router = useRouter();
 
   const handleLoginClick = () => {
     switchToLoginTab();
-    console.log("login clicked");
   };
 
   const togglePasswordVisibility = () => {
@@ -33,23 +33,28 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
     setShowCPassword(!showCPassword);
   };
 
+  const validateSignupDetails = () => {
+    if (!name || !email || !password || !confirmPassword) {
+      toast.error("Please fill in all required fields");
+      return false;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSignup = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
-    // Check if required fields are not empty
-    if (!name || !email || !password || !confirmPassword) {
-      toast.error("Please fill in all required fields");
-      return;
-    }
-
-    // Check if passwords match
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+    if (!validateSignupDetails()) {
       return;
     }
 
     try {
-      // Make API request to signup endpoint
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
         name_txt: name,
         email_txt: email,
@@ -61,20 +66,18 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
       console.log("Signup response:", response.status);
 
       if (response.status === 201) {
-        toast.success("Varify Your email !!!");
-        // Redirect to a new page or perform any other necessary action
+        toast.success("Bestätigen Sie Ihre E-Mail !!!");
         router.push('/');
       } else {
-        toast.error("Something went wrong. Please try again later.");
+        toast.error("Etwas ist schief gelaufen. Bitte versuchen Sie es später noch einmal.");
       }
     } catch (error) {
-      // Handle signup failure
       console.error("Signup failed:", error);
 
       if (error.response && error.response.status === 409) {
-        toast.error("Email already exists");
+        toast.error("E-Mail existiert bereits");
       } else {
-        toast.error("Signup failed. Please try again later.");
+        toast.error("Anmeldung gescheitert. Bitte versuchen Sie es später noch einmal.");
       }
     }
   };
