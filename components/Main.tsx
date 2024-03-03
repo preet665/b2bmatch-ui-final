@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "./ui/theme-provider";
 import { useTheme } from "next-themes";
@@ -10,6 +9,7 @@ import PromptGraph from "@/components/promptGraph";
 import Sidebar from "@/components/sideBar";
 import Footer from "@/components/footer";
 export default function Main() {
+
   return (
     <>
       <div

@@ -12,17 +12,17 @@ import Footer from "@/components/footer";
 export default function GTC() {
   return (
     <>
-      <div className="bg-secondary flex flex-col text-center justify-center items-center">
-        <div className="w-full  max-h-screen overflow-auto">
+      <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-hidden w-full">
+        <div className="w-full  h-screen overflow-auto">
           <span className="text-5xl mt-5 font-bold pl-6">
             <h1 className="bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 inline-block text-transparent bg-clip-text mt-3">
             Preise und Leistungen
             </h1>
           </span>
           <div className="h-fit flex justify-center items-center w-fit p-40 ml-24">
-            <Tabs
+          <Tabs
               defaultValue="CH-de addresses"
-              className="w-[1000px]  text-xl"
+              className="w-full md:text-sm text-xl overflow-scroll"
             >
               <TabsList className="grid w-full grid-cols-4 mb-2">
                 <TabsTrigger className="text-lg p-0  " value="CH-de addresses">
