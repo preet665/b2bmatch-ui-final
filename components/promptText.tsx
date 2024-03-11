@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Button } from "../components/ui/button";
 import { Textarea } from "./ui/textarea";
 import "../app/globals.css";
@@ -10,13 +10,7 @@ const PromptText = () => {
   const { data: session } = useSession();
   const submitButtonRef = useRef(null);
   const [promptText, setPromptText] = useState("");
-  const [isPromptTextEmpty, setIsPromptTextEmpty] = useState(true);
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-
-  useEffect(() => {
-    setIsPromptTextEmpty(promptText.trim().length === 0);
-  }, [promptText]);
 
   const handleKeyDown = (event) => {
     if (event.keyCode === 13) {
@@ -29,6 +23,11 @@ const PromptText = () => {
   };
 
   const handleSave = async () => {
+    if (promptText.trim().length === 0) {
+      toast.error("Geben Sie zuerst Ihre Suchanfrage ein");
+      return;
+    }
+
     if (session) {
       const headersList = {
         "Authorization": `Bearer ${session.access_token}`,
@@ -65,12 +64,9 @@ const PromptText = () => {
       } catch (error) {
         console.error("API Error:", error);
       }
-    }
-    else {
+    } else {
       toast.error("Melden Sie sich zuerst an, um Ihre Eingabeaufforderungen zu speichern");
-      return;
     }
-
   };
 
   return (
@@ -87,28 +83,28 @@ const PromptText = () => {
         <div className="flex flex-col m-2 w-24">
           <Button
             variant={"outline"}
-            className={`bg-primary text-secondary text-sm h-7 border-white border ${isPromptTextEmpty && "opacity-50 cursor-not-allowed"
+            className={`bg-primary text-secondary text-sm h-7 border-white border ${promptText.trim().length === 0 && "opacity-50 cursor-not-allowed"
               }`}
             onClick={handleSave}
-            disabled={isPromptTextEmpty}
+            disabled={promptText.trim().length === 0}
           >
             Speichern
           </Button>
           <Button
             variant={"outline"}
-            className={`bg-primary text-secondary h-7 border-white border ${isPromptTextEmpty && "opacity-50 cursor-not-allowed"
+            className={`bg-primary text-secondary h-7 border-white border ${promptText.trim().length === 0 && "opacity-50 cursor-not-allowed"
               }`}
             onClick={handleNew}
-            disabled={isPromptTextEmpty}
+            disabled={promptText.trim().length === 0}
           >
             Neu
           </Button>
           <Button
             variant={"outline"}
-            className={`bg-primary text-secondary h-7 border-white border ${isPromptTextEmpty && "opacity-50 cursor-not-allowed"
+            className={`bg-primary text-secondary h-7 border-white border ${promptText.trim().length === 0 && "opacity-50 cursor-not-allowed"
               }`}
             ref={submitButtonRef}
-            disabled={isPromptTextEmpty}
+            disabled={promptText.trim().length === 0}
           >
             Senden
           </Button>

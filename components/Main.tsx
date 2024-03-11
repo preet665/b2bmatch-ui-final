@@ -1,12 +1,9 @@
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "./ui/theme-provider";
-import { useTheme } from "next-themes";
 import PromptText from "./promptText";
 import TextCard from "@/components/promptCard";
 import React, { useRef } from "react";
 import PromptRes from "@/components/promptRes";
 import PromptGraph from "@/components/promptGraph";
-import Sidebar from "@/components/sideBar";
 import Footer from "@/components/footer";
 export default function Main() {
 

@@ -1,5 +1,3 @@
-import { useRouter } from 'next/navigation';
-
 async function getTreemap() {
   const res = await fetch('http://46.101.116.31:3000/get-treemap', {
     cache: 'no-store',

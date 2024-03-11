@@ -1,5 +1,6 @@
 // RootLayout.js
 "use client";
+import Head from "next/head"
 import Sidebar from "@/components/sideBar";
 import "./globals.css";
 import { ToastContainer } from 'react-toastify';
@@ -16,11 +17,11 @@ const RootLayout: React.FC<Props> = ({ children, session }) => {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head>
+        <Head>
           <meta charSet="UTF-8"></meta>
           <title>B2Bmatch.ch</title>
           <meta name="google" content="notranslate"></meta>
-        </head>
+        </Head>
         <body className="overflow-hidden ">
           <Providers>
             <div className="flex w-screen">

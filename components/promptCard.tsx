@@ -1,12 +1,4 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "../components/ui/card";
-import { Button } from "@/components/ui/button";
 interface TextCardProps {
   title: string;
   description: string;
@@ -16,10 +8,7 @@ interface TextCardProps {
 }
 
 const TextCard: React.FC<TextCardProps> = ({
-  title,
   description,
-  buttonText,
-  buttonLink,
   customMessage,
 }) => {
   return (

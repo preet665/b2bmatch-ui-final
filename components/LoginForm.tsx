@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 import CustomIcon from "./Icon";
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
@@ -17,6 +17,16 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
   const icon = showPassword ? eye : eyeOff;
   const router = useRouter()
 
+  useEffect(() => {
+    // Check if there's an error query parameter in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    if (error) {
+      // Display a toast notification with the error message
+      toast.error('Authentication failed');
+    }
+  }, []);
+
   const handleSignupClick = () => {
     switchToSignupTab();
     console.log("signup clicked");
@@ -28,7 +38,13 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
 
   const handleLogin = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    const result = await signIn("credentials", { username: email, password: password, redirect: true, callbackUrl: '/' })
+    try {
+      const result = await signIn("credentials", { username: email, password: password, redirect: true, callbackUrl: '/' })
+    } catch (error) {
+      toast.error('Falsche Anmeldedaten');
+    }
+    // setresult(result);
+    console.log(result);
   };
 
   return (
