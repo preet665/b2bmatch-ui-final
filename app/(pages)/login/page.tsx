@@ -34,7 +34,7 @@ export default function Login() {
               }`}
               onClick={() => setActiveTab("password")}
             >
-              Melden Sie sich an
+              Registrieren
             </button>
           </div>
           {activeTab === "account" ? (
