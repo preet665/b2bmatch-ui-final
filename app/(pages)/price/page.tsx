@@ -13,9 +13,9 @@ export default function GTC() {
   return (
     <>
       <div className="bg-secondary flex flex-col text-center justify-center h-screen overflow-hidden w-full">
-        <div className="w-full  h-screen overflow-auto">
-          <span className="text-5xl mt-5 font-bold pl-6">
-            <h1 className="bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950 inline-block text-transparent bg-clip-text mt-3">
+        <div className="w-full  h-screen overflow-auto ">
+          <span className="text-5xl mt-5 font-bold pl-6 ">
+            <h1 className="bg-gradient-to-r from-green-600 via-violet-900-500 to-green-950  inline-block text-transparent bg-clip-text p-5">
             Preise und Leistungen
             </h1>
           </span>
