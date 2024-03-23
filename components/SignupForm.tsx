@@ -110,6 +110,7 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
                   placeholder="name@firma.ch"
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  autoComplete = "on"
                 />
               </div>
               <div>
@@ -127,6 +128,7 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
                   placeholder="Nike"
                   onChange={(e) => setName(e.target.value)}
                   required
+                  autoComplete = "on"
                 />
               </div>
               <div>
@@ -145,6 +147,7 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
                     onChange={(e) => setPassword(e.target.value)}
                     className="bg-gray-50 border border-gray-300 border-none text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
+                    autoComplete = "on"
                   />
 
                   <button
@@ -172,6 +175,7 @@ const SignupForm = ({ switchToLoginTab }: { switchToLoginTab: any }) => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     className="bg-gray-50 border border-gray-300 border-none text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
+                    autoComplete = "on"
                   />
 
                   <button

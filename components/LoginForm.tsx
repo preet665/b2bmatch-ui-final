@@ -23,6 +23,7 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
     const error = urlParams.get('error');
     if (error) {
       // Display a toast notification with the error message
+      console.log("Error from URL:", error);
       toast.error('Authentication failed');
     }
   }, []);
@@ -40,7 +41,9 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
     e.preventDefault();
     try {
       const result = await signIn("credentials", { username: email, password: password, redirect: true, callbackUrl: '/' })
+      console.log("Login result:", result);
     } catch (error) {
+      console.error("Login error:", error);
       toast.error('Falsche Anmeldedaten');
     }
     // setresult(result);
@@ -73,21 +76,7 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div>
-                <label
-                  htmlFor="username"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Nutzername
-                </label>
-                <input
-                  type="username"
-                  name="username"
-                  id="username"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Nike"
-                />
-              </div>
+              
               <div>
                 <label
                   htmlFor="password"
@@ -104,6 +93,7 @@ const LoginForm = ({ switchToSignupTab }: { switchToSignupTab: any }) => {
                     className="bg-gray-50 border border-gray-300 border-none text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required
                     onChange={(e) => setPassword(e.target.value)}
+                    autoComplete = "on"
                   />
 
                   <button
