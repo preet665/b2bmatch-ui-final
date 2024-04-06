@@ -3,8 +3,8 @@ import Footer from "@/components/footer";
 
 async function fetchHtmlContent() {
   const token = process.env.GIT_ACCESS_TOKEN;
-  const repoOwner = "preet665";
-  const repoName = "b2b-match-ui-docs";
+  const repoOwner = process.env.repoOwner;
+  const repoName = process.env.repoName;  
   const filePath = "gtc.html"; // Update with the actual path
 
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
